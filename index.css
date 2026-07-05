@@ -984,6 +984,7 @@ body.hover-active .custom-cursor-ring {
    Responsive Adaptations
    ========================================================================== */
 @media (max-width: 992px) {
+  /* Layout Panel stacking */
   .sidebar-panel {
     position: relative;
     width: 100%;
@@ -993,16 +994,115 @@ body.hover-active .custom-cursor-ring {
     padding: 2.5rem var(--edge-padding);
   }
   
+  /* Convert Sidebar Nav to horizontal wrapping nav */
   .sidebar-nav {
-    display: none; /* Hide vertical menu on mobile header */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin: 1.5rem 0 0;
+  }
+  
+  .nav-item {
+    font-size: 0.65rem !important;
+    padding: 0.2rem 0;
+  }
+  
+  .nav-item span {
+    display: none; /* Hide numbers on mobile nav */
   }
 
   .content-panel {
     margin-left: 0;
+    width: 100%;
   }
   
   .main-wrapper {
     flex-direction: column;
+  }
+
+  /* Disable Custom Cursor on Touch */
+  .custom-cursor,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+
+  /* Services Grid Stacking */
+  .services-left-col,
+  .services-right-col {
+    grid-column: span 12 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-right: none !important;
+  }
+
+  /* Dashboard Panel Border fixes */
+  .panel-table-side {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Tighten spacing on mobile */
+  .grid-container {
+    padding: 2.5rem 1rem;
+    gap: 2rem;
+  }
+
+  .structured-header {
+    padding: 3rem 1rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* Savyo Dashboard Grid Reflow */
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .dashboard-metric-cell {
+    border-right: 1px solid var(--border-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+  }
+  
+  .dashboard-metric-cell:nth-child(even) {
+    border-right: none !important;
+  }
+  
+  .dashboard-metric-cell:nth-child(5) {
+    grid-column: span 2;
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+
+  .product-item-row {
+    padding: 0.8rem 0.75rem;
+  }
+
+  .panel-detail-side {
+    padding: 1.5rem;
+  }
+
+  /* Mobile Lightbox Close Button styling */
+  .lightbox-close {
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    background: rgba(10, 10, 10, 0.85) !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 20px;
+    z-index: 10001;
+  }
+  
+  .profile-section {
+    padding: 3rem 1rem;
+  }
+
+  .profile-layout {
+    padding: 0;
+    gap: 2rem;
   }
 }
 
