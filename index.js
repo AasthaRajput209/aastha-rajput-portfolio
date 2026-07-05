@@ -44,7 +44,7 @@ function initCustomCursor() {
 
   // Scale cursor on hover targets
   const refreshHoverTargets = () => {
-    const hoverTargets = document.querySelectorAll('a, button, .card-media-box, .gallery-thumb-card, .brand-card, .hero-cta, .product-item-row:not(.table-head)');
+    const hoverTargets = document.querySelectorAll('a, button, .card-media-box, .gallery-thumb-card, .video-thumb-card, .brand-card, .hero-cta, .product-item-row:not(.table-head)');
     hoverTargets.forEach(target => {
       target.removeEventListener('mouseenter', addHoverClass);
       target.removeEventListener('mouseleave', removeHoverClass);
@@ -70,7 +70,7 @@ function initCustomCursor() {
  * Scroll Reveal Animations using IntersectionObserver
  */
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.scroll-reveal, .project-card, .gallery-thumb-card, .featured-package-item, .capability-group');
+  const revealElements = document.querySelectorAll('.scroll-reveal, .project-card, .gallery-thumb-card, .video-thumb-card, .featured-package-item, .capability-group');
   
   if (revealElements.length === 0) return;
 
@@ -116,7 +116,7 @@ function initVideoAutoplay() {
     video.playsInline = true;
     videoObserver.observe(video);
     
-    const wrapper = video.closest('.card-media-box, .gallery-thumb-card');
+    const wrapper = video.closest('.card-media-box, .gallery-thumb-card, .video-thumb-card');
     if (wrapper) {
       wrapper.addEventListener('mouseenter', () => {
         video.play().catch(() => {});
@@ -171,7 +171,7 @@ function initLightbox() {
   }
 
   // Bind clicks to main portfolio work media and catalog thumbnails
-  const mediaWrappers = document.querySelectorAll('.card-media-box, .gallery-thumb-card');
+  const mediaWrappers = document.querySelectorAll('.card-media-box, .gallery-thumb-card, .video-thumb-card');
   mediaWrappers.forEach(wrapper => {
     wrapper.addEventListener('click', () => {
       // Exclude clicks if it's inside the PDF download anchor
